@@ -4,13 +4,13 @@ const morgan = require('morgan');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 const MONGODB_URI = "mongodb+srv://jw209:ThC419plusOne%3F@cluster0.ghlu9.mongodb.net/Tennis?retryWrites=true&w=majority";
 
 const routes = require('./routes/api');
 
 // mongoose connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/jw209', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -26,6 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 // http request logger
 app.use(morgan('tiny'));
 app.use('/api', routes);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
 
 // start listening
 app.listen(PORT, console.log(`Server is stating at ${PORT}`));
