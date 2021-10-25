@@ -10,7 +10,7 @@ const MONGODB_URI = "mongodb+srv://jw209:ThC419plusOne%3F@cluster0.ghlu9.mongodb
 const routes = require('./routes/api');
 
 // mongoose connection
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -28,13 +28,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan('tiny'));
 app.use('/api', routes);
 
-
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
     app.get("*", (req, res) => {
-      res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+      res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
 }
+
 
 // start listening
 app.listen(PORT, console.log(`Server is stating at ${PORT}`));
