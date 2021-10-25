@@ -81,9 +81,10 @@ class Home extends React.Component {
         <div className="Home-page">
           <p className="Intro">Welcome to the University of Akron's official
             tennis club website. Here you can view rankings, get the latest club
-            information, and participate in student forms. You should
-            also submit your competitive matches through this website.<br></br><br></br>
-            Use the forms below to submit a match query! Matches submitted 2 hours after a tennis club meeting will not be considered.
+            information, and submit your games for approval.<br></br><br></br>
+            Use the forms below to submit a match query! Matches submitted more than 2 hours
+            after a tennis club meeting will not be considered unless it has been discussed with
+            a club officer.
           </p>
           <form onSubmit={this.submit}>
             <h2 style={{color:"white", marginLeft:"5%"}}>Player 1 Statistics</h2>
