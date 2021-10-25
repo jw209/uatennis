@@ -19,6 +19,7 @@ mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected');
 });
 
+
 // data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
