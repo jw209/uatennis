@@ -28,8 +28,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan('tiny'));
 app.use('/api', routes);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname,  "build", "index.html"));
+    });
 }
 
 // start listening
