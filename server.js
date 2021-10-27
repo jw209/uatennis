@@ -9,6 +9,7 @@ const MONGODB_URI = "mongodb+srv://jw209:ThC419plusOne%3F@cluster0.ghlu9.mongodb
 
 const routes = require('./routes/api');
 
+// adding to github
 // mongoose connection
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
