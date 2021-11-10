@@ -104,6 +104,7 @@ class Home extends React.Component {
             <button className="button">submit</button>
           </form>
           <div>{this.displayStatus(this.state.isSubmitted)}</div>
+          <h1 style={{color:"white", fontWeight:"100", marginLeft:"5%"}}>Current Season:&nbsp;<span style={{color:"green"}}>Fall 2021</span></h1>
         </div>
       )
     } 

@@ -10,6 +10,7 @@ import './App.css';
 import Home from './Home';
 import About from './About';
 import Forum from './Forum';
+import Login from './Login';
 
 class App extends React.Component {
   
@@ -44,7 +45,7 @@ class App extends React.Component {
 
     return players.map((player, index) => (
       <div key={index}>
-        <h3>{player.name}</h3>
+        <h3>{index+1})&nbsp;{player.name}</h3>
         <p>{player.score}</p>
       </div>
     ))
@@ -60,7 +61,7 @@ class App extends React.Component {
           <div className="Content">
           <Router>
             <h1><Link to="/" className="Home-link">UA Tennis Club</Link></h1>
-            <div className="Links"><p><Link to="/about" className="Other-nav">About</Link><Link to="/forum" className="Other-nav">Posts &amp; Announcements</Link></p></div>
+            <div className="Links"><p><Link to="/about" className="Other-nav">About</Link><Link to="/forum" className="Other-nav">Posts</Link><Link to="/login" className="Other-nav">Login</Link></p></div>
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -70,6 +71,9 @@ class App extends React.Component {
               </Route>
               <Route exact path="/forum">
                 <Forum />
+              </Route>
+              <Route exact path="/login">
+                <Login />
               </Route>
             </Switch>
           </Router>
