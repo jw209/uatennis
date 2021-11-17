@@ -6,7 +6,7 @@ const passport = require("passport");
 
 const app = express();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 55632;
 const MONGODB_URI = require("./config/keys").mongoURI;
 
 const routes = require('./routes/api');
