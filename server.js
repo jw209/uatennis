@@ -2,10 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
+const passport = require("passport");
 
 const app = express();
+
 const PORT = process.env.PORT || 8080;
-const MONGODB_URI = "mongodb+srv://jw209:ThC419plusOne%3F@cluster0.ghlu9.mongodb.net/Tennis?retryWrites=true&w=majority";
+const MONGODB_URI = require("./config/keys").mongoURI;
 
 const routes = require('./routes/api');
 
@@ -23,6 +25,12 @@ mongoose.connection.on('connected', () => {
 // data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
 
 // http request logger
 app.use(morgan('tiny'));
